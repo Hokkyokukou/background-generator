@@ -29,6 +29,9 @@ function setRandomGradient() {
     changeBackground();
 }
 
+window.addEventListener("load", getRandomColor)
+window.addEventListener("load", setRandomGradient)
+
 firstColor.addEventListener("input", changeBackground);
 
 secondColor.addEventListener("input", changeBackground);
