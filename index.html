@@ -11,9 +11,23 @@
     <h1>Background Generator</h1>
     <input type="color" name="color1" id="color1" value="#00ff00">
     <input type="color" name="color2" id="color2" value="#ff0000">
+    <select name="toDirection">
+        <option value="to right">to right</option>
+        <option value="to right bottom">to right bottom</option>
+        <option value="to right top">to right top</option>
+        <option value="to left">to left</option>
+        <option value="to left bottom">to left bottom</option>
+        <option value="to left top">to left top</option>
+        <option value="to bottom">to bottom</option>
+        <option value="to top">to top</option>
+    </select>
+    <button class="randomDirection">random direction</button>
     <h2>Current CSS Background</h2>
     <h3></h3>
-    <button class="random">Random</button>
+    <button class="random">Random both colors</button>
+    <button class="firstRandomBtn">Random only first color</button>
+    <button class="secondRandomBtn">Random only second color</button>
+    
     <script src="script.js"></script>
 </body>
 </html>
