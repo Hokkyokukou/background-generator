@@ -1,14 +1,14 @@
 function myBgGenerator() {
-    let firstColor = document.getElementById('color1');
-    let secondColor = document.getElementById('color2');
-    let gradientGenerate = document.getElementsByTagName('h3')[0];
-    let body = document.getElementById('gradient');
-    let randomButton = document.querySelector('.random');
-    let firstRandomBtn = document.querySelector('.firstRandomBtn');
-    let secondRandomBtn = document.querySelector('.secondRandomBtn');
-    let linearDirection = document.getElementsByName('toDirection')[0];
-    let randomDirection = document.querySelector('.randomDirection');
-
+    const firstColor = document.getElementById('color1');
+    const secondColor = document.getElementById('color2');
+    const gradientGenerate = document.getElementsByTagName('h3')[0];
+    const body = document.getElementById('gradient');
+    const randomButton = document.querySelector('.random');
+    const firstRandomBtn = document.querySelector('.firstRandomBtn');
+    const secondRandomBtn = document.querySelector('.secondRandomBtn');
+    const linearDirection = document.getElementsByName('toDirection')[0];
+    const randomDirection = document.querySelector('.randomDirection');
+    
     const actions = {
         "to right": "to right",
         "to left": "to left",
@@ -17,12 +17,18 @@ function myBgGenerator() {
         "to right bottom": "to right bottom",
         "to left bottom": "to left bottom",
         "to right top": "to right top",
-        "to left top": "to left top"
+        "to left top": "to left top",
+        "radial": "radial"
     };
 
     function changeBackground() {
-        const direction = actions[linearDirection.value];
-        body.style.background = 
+        if (linearDirection.value === 'radial') {
+            body.style.background = 
+            `radial-gradient(${firstColor.value} , ${secondColor.value})`;
+            gradientGenerate.textContent = `${body.style.background};`;
+        } else {
+            const direction = actions[linearDirection.value];
+            body.style.background = 
             'linear-gradient('
             + direction
             + ', '
@@ -31,10 +37,12 @@ function myBgGenerator() {
             + secondColor.value 
             + ')';
         gradientGenerate.textContent = body.style.background +';';
+        }
+        
     } 
 
     function getRandomColor() {
-        let letters = '0123456789ABCDEF';
+        const letters = '0123456789ABCDEF';
         let color = '#';
         for (let i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
@@ -59,7 +67,7 @@ function myBgGenerator() {
     }
 
     function setRandomDirection() {
-        let randomNum = Math.floor(Math.random() * linearDirection.options.length);
+        const randomNum = Math.floor(Math.random() * linearDirection.options.length);
         linearDirection.value = linearDirection.options[randomNum].value;
         changeBackground();
     }
