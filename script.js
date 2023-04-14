@@ -1,12 +1,12 @@
 function myBgGenerator() {
     const firstColor = document.getElementById('color1');
     const secondColor = document.getElementById('color2');
-    const gradientGenerate = document.getElementsByTagName('h3')[0];
+    const gradientGenerate = document.querySelector('.gradientGenerate');
     const body = document.getElementById('gradient');
     const randomButton = document.querySelector('.random');
     const firstRandomBtn = document.querySelector('.firstRandomBtn');
     const secondRandomBtn = document.querySelector('.secondRandomBtn');
-    const gradientDirection = document.getElementsByName('toDirection')[0];
+    const gradientDirection = document.querySelector('.toDirection');
     const randomDirection = document.querySelector('.randomDirection');
 
     const changeBackground = () => {//arrow function es6
