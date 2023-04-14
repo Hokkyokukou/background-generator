@@ -9,7 +9,7 @@ function myBgGenerator() {
     const gradientDirection = document.getElementsByName('toDirection')[0];
     const randomDirection = document.querySelector('.randomDirection');
 
-    function changeBackground() {
+    const changeBackground = () => {//arrow function es6
         if (gradientDirection.value === 'radial') {
             body.style.background = `radial-gradient(${firstColor.value}, 
             ${secondColor.value})`;
@@ -19,9 +19,9 @@ function myBgGenerator() {
             ${firstColor.value}, ${secondColor.value})`;
             gradientGenerate.textContent = `${body.style.background};`;
         }
-    } 
+    }
 
-    function getRandomColor() {
+    const getRandomColor = () => {
         const letters = '0123456789ABCDEF';
         let color = '#';
         for (let i = 0; i < 6; i++) {
@@ -30,29 +30,29 @@ function myBgGenerator() {
         return color;
     }
 
-    function setRandomGradient() {
+    const setRandomGradient = () => {
         firstColor.value = getRandomColor();
         secondColor.value = getRandomColor();
         changeBackground();
     }
 
-    function setOnlyFirstRandomGradient() {
+    const setOnlyFirstRandomGradient = () => {
         firstColor.value = getRandomColor();
         changeBackground();
     }
 
-    function setOnlySecondRandomGradient() {
+    const setOnlySecondRandomGradient = () => {
         secondColor.value = getRandomColor();
         changeBackground();
     }
 
-    function setRandomDirection() {
+    const setRandomDirection = () => {
         const randomNum = Math.floor(Math.random() * gradientDirection.options.length);
         gradientDirection.value = gradientDirection.options[randomNum].value;
         changeBackground();
     }
 
-    function loadFunctions() {
+    const loadFunctions = () => {
         getRandomColor();
         setRandomGradient();
         setOnlyFirstRandomGradient();
