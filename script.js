@@ -1,4 +1,4 @@
-function myBgGenerator() {
+const myBgGenerator = () => {
     const firstColor = document.getElementById('color1');
     const secondColor = document.getElementById('color2');
     const gradientGenerate = document.querySelector('.gradientGenerate');
