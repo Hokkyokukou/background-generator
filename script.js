@@ -9,7 +9,7 @@ const myBgGenerator = () => {
     const gradientDirection = document.querySelector('.toDirection');
     const randomDirection = document.querySelector('.randomDirection');
 
-    const changeBackground = () => {//arrow function es6
+    const changeBackground = () => {
         if (gradientDirection.value === 'radial') {
             body.style.background = `radial-gradient(${firstColor.value}, 
             ${secondColor.value})`;
@@ -19,7 +19,7 @@ const myBgGenerator = () => {
             ${firstColor.value}, ${secondColor.value})`;
             gradientGenerate.textContent = `${body.style.background};`;
         }
-    }
+    };
 
     const getRandomColor = () => {
         const letters = '0123456789ABCDEF';
@@ -28,29 +28,31 @@ const myBgGenerator = () => {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    }
+    };
 
     const setRandomGradient = () => {
         firstColor.value = getRandomColor();
         secondColor.value = getRandomColor();
         changeBackground();
-    }
+    };
 
     const setOnlyFirstRandomGradient = () => {
         firstColor.value = getRandomColor();
         changeBackground();
-    }
+    };
 
     const setOnlySecondRandomGradient = () => {
         secondColor.value = getRandomColor();
         changeBackground();
-    }
+    };
 
     const setRandomDirection = () => {
-        const randomNum = Math.floor(Math.random() * gradientDirection.options.length);
+        const randomNum = Math.floor(
+            Math.random() * gradientDirection.options.length
+        );
         gradientDirection.value = gradientDirection.options[randomNum].value;
         changeBackground();
-    }
+    };
 
     const loadFunctions = () => {
         getRandomColor();
@@ -59,9 +61,9 @@ const myBgGenerator = () => {
         setOnlySecondRandomGradient();
         changeBackground();
         setRandomDirection();
-    }
+    };
 
-    window.addEventListener('load',loadFunctions);
+    window.addEventListener('load', loadFunctions);
 
     firstColor.addEventListener('input', changeBackground);
     secondColor.addEventListener('input', changeBackground);
@@ -70,6 +72,6 @@ const myBgGenerator = () => {
     secondRandomBtn.addEventListener('click', setOnlySecondRandomGradient);
     gradientDirection.addEventListener('click', changeBackground);
     randomDirection.addEventListener('click', setRandomDirection);
-}
+};
 
 myBgGenerator();
