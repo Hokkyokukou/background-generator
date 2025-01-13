@@ -8,7 +8,7 @@ const myBgGenerator = () => {
     const secondRandomBtn = document.querySelector('.secondRandomBtn');
     const gradientDirection = document.querySelector('.toDirection');
     const randomDirection = document.querySelector('.randomDirection');
-
+    
     const changeBackground = () => {
         const gradientType =
             gradientDirection.value === 'radial'
@@ -56,11 +56,7 @@ const myBgGenerator = () => {
     };
 
     const loadFunctions = () => {
-        getRandomColor();
         setRandomGradient();
-        setOnlyFirstRandomGradient();
-        setOnlySecondRandomGradient();
-        changeBackground();
         setRandomDirection();
     };
 
@@ -71,7 +67,7 @@ const myBgGenerator = () => {
     randomButton.addEventListener('click', setRandomGradient);
     firstRandomBtn.addEventListener('click', setOnlyFirstRandomGradient);
     secondRandomBtn.addEventListener('click', setOnlySecondRandomGradient);
-    gradientDirection.addEventListener('click', changeBackground);
+    gradientDirection.addEventListener('change', changeBackground);
     randomDirection.addEventListener('click', setRandomDirection);
 };
 
