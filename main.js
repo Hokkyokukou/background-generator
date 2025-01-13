@@ -10,15 +10,16 @@ const myBgGenerator = () => {
     const randomDirection = document.querySelector('.randomDirection');
 
     const changeBackground = () => {
-        if (gradientDirection.value === 'radial') {
-            body.style.background = `radial-gradient(${firstColor.value}, 
-            ${secondColor.value})`;
-            gradientGenerate.textContent = `${body.style.background};`;
+        const gradientType =
+            gradientDirection.value === 'radial'
+                ? 'radial-gradient'
+                : 'linear-gradient';
+        if (gradientType === 'radial-gradient') {
+            body.style.background = `${gradientType}(${firstColor.value}, ${secondColor.value})`;
         } else {
-            body.style.background = `linear-gradient(${gradientDirection.value},
-            ${firstColor.value}, ${secondColor.value})`;
-            gradientGenerate.textContent = `${body.style.background};`;
+            body.style.background = `${gradientType}(${gradientDirection.value}, ${firstColor.value}, ${secondColor.value})`;
         }
+        gradientGenerate.textContent = `${body.style.background};`;
     };
 
     const getRandomColor = () => {
