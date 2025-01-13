@@ -8,7 +8,8 @@ const myBgGenerator = () => {
     const secondRandomBtn = document.querySelector('.secondRandomBtn');
     const gradientDirection = document.querySelector('.toDirection');
     const randomDirection = document.querySelector('.randomDirection');
-    
+
+    // Function to change the background based on selected colors and direction
     const changeBackground = () => {
         const gradientType =
             gradientDirection.value === 'radial'
@@ -22,6 +23,7 @@ const myBgGenerator = () => {
         gradientGenerate.textContent = `${body.style.background};`;
     };
 
+    // Function to generate a random color
     const getRandomColor = () => {
         const letters = '0123456789ABCDEF';
         let color = '#';
@@ -31,22 +33,26 @@ const myBgGenerator = () => {
         return color;
     };
 
+    // Function to set a random gradient
     const setRandomGradient = () => {
         firstColor.value = getRandomColor();
         secondColor.value = getRandomColor();
         changeBackground();
     };
 
+    // Function to set only the first color to a random value
     const setOnlyFirstRandomGradient = () => {
         firstColor.value = getRandomColor();
         changeBackground();
     };
 
+    // Function to set only the second color to a random value
     const setOnlySecondRandomGradient = () => {
         secondColor.value = getRandomColor();
         changeBackground();
     };
 
+    // Function to set a random gradient direction
     const setRandomDirection = () => {
         const randomNum = Math.floor(
             Math.random() * gradientDirection.options.length
@@ -55,6 +61,7 @@ const myBgGenerator = () => {
         changeBackground();
     };
 
+    // Function to initialize the background generator on page load
     const loadFunctions = () => {
         setRandomGradient();
         setRandomDirection();
